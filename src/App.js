@@ -11,7 +11,7 @@ function App() {
     <Layout isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}>
       <Routes>
         <Route path="/" element={<Home isDarkMode={isDarkMode}/>} />
-        <Route path="country/:countryCode" element={<CountryDetail isDarkMode={isDarkMode}/>} />
+        <Route path="/country/:countryCode" element={<CountryDetail isDarkMode={isDarkMode}/>} />
       </Routes>
     </Layout>
   );
