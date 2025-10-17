@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/Home.jsx";
+import CountryDetail from "./components/CountryDetail.jsx";
+import Layout from "./components/Layout.jsx";
+import { useState } from "react"
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode}>
+      <Routes>
+        <Route path="/" element={<Home isDarkMode={isDarkMode}/>} />
+        <Route path="country/:countryCode" element={<CountryDetail isDarkMode={isDarkMode}/>} />
+      </Routes>
+    </Layout>
   );
 }
 
